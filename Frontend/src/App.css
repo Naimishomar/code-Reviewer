@@ -1,0 +1,106 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,body,#root{
+  width: 100%;
+  height: 100%;
+}
+main{
+  height: 100%;
+  width: 100%;
+  padding: 1rem 1.5rem;
+  display: flex;
+  gap: 1rem;
+}
+.codeInput{
+  height: 100%;
+  min-width: 50%;
+  background-color: rgb(29, 29, 29);
+  border-radius: 10px;
+  position: relative;
+  overflow: auto;
+  scrollbar-width: 2px;
+}
+.codeReview{
+  height: 100%;
+  flex-grow: 1;
+  /* width: 50%; */
+  background-color: black;
+  border-radius: 10px;
+  padding: 2rem 4rem;
+  overflow: auto;
+  font-family: monospace;
+  font-size: 1rem;
+}
+.review-btn{
+  position: absolute;
+  top: 1rem;
+  right: 0;
+  margin: 0 1rem 1rem 0;
+  background-color: rgb(219,219,255);
+  color: black;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  scrollbar-width: none;
+}
+.review-btn:hover{
+  cursor: pointer;
+}
+.closeCode{
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 1rem;
+  background-color: grey;
+  padding: 0.5rem;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.closeCode:hover{
+  cursor: pointer;
+}
+.closeCode i{
+  font-size: 1.7rem;
+}
+.opencode{
+  position: absolute;
+  margin: 1rem;
+  background-color: grey;
+  padding: 0.5rem;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.opencode:hover{
+  cursor: pointer;
+}
+.opencode i{
+  font-size: 1.7rem;
+}
+.codeInput .code, .code pre, .code pre code{
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  border-radius: 10px;
+  padding-top: 4rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 4rem;
+  background-color: transparent; 
+}
+.codeInput .code:focus, .code pre:focus, .code pre code:focus{
+  outline: none;
+}
+.code{
+  width: 100%;
+  height: 100%;
+}
