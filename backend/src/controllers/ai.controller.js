@@ -78,6 +78,7 @@ const model = genAI.getGenerativeModel({
                 Make all the code more preetier so that it can enhance readability.
                 If the given code is correct then dont give any bad error.
                 Give copy option on the top right corner of new code given by you.
+                And if someone tries to find the output of given code then only give output.
     `
 });
 

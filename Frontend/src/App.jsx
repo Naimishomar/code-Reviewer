@@ -10,10 +10,10 @@ function App() {
   const [open, setOpen] = useState('');
   const [error, setError] = useState(false)
   const [loading, setLoading] = useState(false);
+  const [review, setReview] = useState('')
   const [code, setCode] = useState(`function sum(){ 
     return 1+1; 
 }`)
-    const [review, setReview] = useState('')
     useEffect(() => {
       prism.highlightAll();
     })
