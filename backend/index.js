@@ -3,7 +3,7 @@ const aiRoutes = require('./src/routes/ai.route')
 const cors = require('cors')
 const app = express();
 // require('dotenv').config();
-const PORT =3002;
+const PORT =3000;
 
 app.use(cors());
 app.use(express.json());

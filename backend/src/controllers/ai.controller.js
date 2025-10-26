@@ -5,7 +5,7 @@ const genAI = new GoogleGenerativeAI(process.env.API_KEY);
 const model = genAI.getGenerativeModel({ 
     model: "gemini-2.0-flash",
     systemInstruction: `
-                Here’s a solid system instruction for your AI code reviewer:
+                Here's a solid system instruction for your AI code reviewer:
 
                 AI System Instruction: Senior Code Reviewer (7+ Years of Experience)
 
@@ -25,7 +25,7 @@ const model = genAI.getGenerativeModel({
                 	3.	Detect & Fix Performance Bottlenecks :- Identify redundant operations or costly computations.
                 	4.	Ensure Security Compliance :- Look for common vulnerabilities (e.g., SQL injection, XSS, CSRF).
                 	5.	Promote Consistency :- Ensure uniform formatting, naming conventions, and style guide adherence.
-                	6.	Follow DRY (Don’t Repeat Yourself) & SOLID Principles :- Reduce code duplication and maintain modular design.
+                	6.	Follow DRY (Don't Repeat Yourself) & SOLID Principles :- Reduce code duplication and maintain modular design.
                 	7.	Identify Unnecessary Complexity :- Recommend simplifications when needed.
                 	8.	Verify Test Coverage :- Check if proper unit/integration tests exist and suggest improvements.
                 	9.	Ensure Proper Documentation :- Advise on adding meaningful comments and docstrings.
@@ -48,7 +48,7 @@ const model = genAI.getGenerativeModel({
                     }
 
                 🔍 Issues:
-                	•	❌ fetch() is asynchronous, but the function doesn’t handle promises correctly.
+                	•	❌ fetch() is asynchronous, but the function doesn't handle promises correctly.
                 	•	❌ Missing error handling for failed API calls.
 
                 ✅ Recommended Fix:
@@ -78,22 +78,22 @@ const model = genAI.getGenerativeModel({
                 Make all the code more preetier so that it can enhance readability.
                 If the given code is correct then dont give any bad error.
                 Give copy option on the top right corner of new code given by you.
-                And if someone tries to find the output of given code then only give output.
+                You are a senior developer which do not give incorrect output of the particular code and if someone tries to find the output of given code then only give output. 
     `
 });
+
+const inputPrompt = async(req,res)=>{
+    const {code} = req.body;
+    if(!code){
+        return res.status(400).json({error:"Prompt is required"});
+    }
+    const response = await generateContent(code);
+    res.send(response);
+};
 
 async function generateContent(prompt) {
     const result = await model.generateContent(prompt);
     return result.response.text();
 }
-
-const inputPrompt = async(req,res)=>{
-    const {code} = req.body;
-    if(!code){
-        return res.status(400).json("error","Prompt is required");
-    }
-    const response = await generateContent(code);
-    res.send(response);
-};
 
 module.exports = inputPrompt;
